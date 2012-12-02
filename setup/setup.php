@@ -14,13 +14,15 @@ class SetupInstallCommand extends Command {
 	}
 
 	protected function execute(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output) {
-		$linkables = glob('**/*{.symlink}');
+		$output->writeln('<info>Start setup</info>');
+		$linkables = glob('**/*.symlink');
 
 		$skip_all = false;
 		$overwrite_all = false;
 		$backup_all = false;
 
 		foreach ($linkables as $linkable) {
+			$output->writeln("<info>Found file to link: $linkable</info>");
 			$overwrite = false;
 			$backup = false;
 
