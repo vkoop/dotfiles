@@ -7,3 +7,8 @@ ZSH_THEME="my"
 plugins=(git, zsh-syntax-highlighting, svn)
 
 source $ZSH/oh-my-zsh.sh
+
+# load other scripts from dotfiles
+DOTFILES=dotfiles
+setopt extended_glob
+for config_file ($DOTFILES/^(load_excluded)/**/*.zsh) source $config_file
