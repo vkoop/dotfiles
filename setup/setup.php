@@ -67,8 +67,8 @@ class SetupInstallCommand extends Command {
 								\RecursiveIteratorIterator::CHILD_FIRST
 						);
 						foreach($iter as $f){
-							if(is_file($f)) unlink ($f);
-							else rmdir ($f);
+							if($f->isFile) unlink ($f->__toString());
+							else rmdir ($f->__toString());
 						}
 					}
 				}
