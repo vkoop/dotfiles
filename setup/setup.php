@@ -1,10 +1,7 @@
 <?php
-
-// SETUP script
+namespace vkoop\dotfiles\Setup;
 
 require 'vendor/autoload.php';
-
-namespace vkoop\dotfiles\Setup;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
