@@ -1,1 +1,3 @@
 *.swp
+setup/vendor/
+composer.phar
