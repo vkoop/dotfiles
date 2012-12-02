@@ -28,4 +28,4 @@ System configurations like PATH variable are initialized inside of:
     system/path.zsh
 
 ## how it works
-Beside of oh-my-zsh inside of zshrc zsh-scripts are loaded recursivly from all directories inside of "dotfiles". Scripts inside of "load_excluded" are not loaded seperatily. The folder is used mainly for oh-my-zsh.
+Beside of oh-my-zsh, inside of zshrc zsh-scripts are loaded recursivly from all directories inside of "dotfiles". Scripts inside of "load_excluded" are not loaded seperatily. The folder is used mainly for oh-my-zsh.
