@@ -1,12 +1,5 @@
 # dotfiles
 I'm using oh-my-zsh and custom zsh scripts. 
-All files and dirs that should be linked into the home-folder have the following naming convention:
-
-    "file.symlink"
-
-or
-
-    "dir.symlink"
 
 ## setup
 To create symlinks simply execute:
@@ -26,6 +19,15 @@ In order to sepearte configuration and aliases belonging to different appliation
 System configurations like PATH variable are initialized inside of:
     
     system/path.zsh
+
+All files and dirs that should be linked into the home-folder have the following naming convention:
+
+    "file.symlink"
+
+or
+
+    "dir.symlink"
+
 
 ## how it works
 Beside of oh-my-zsh, inside of zshrc zsh-scripts are loaded recursivly from all directories inside of "dotfiles". Scripts inside of "load_excluded" are not loaded seperatily. The folder is used mainly for oh-my-zsh.
