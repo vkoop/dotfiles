@@ -36,7 +36,7 @@ class SetupInstallCommand extends Command {
 				if (!$skip_all && !$overwrite_all && !$backup_all) {
 					$dialog = $this->getHelperSet()->get('dialog');
 
-					$option = $dialog->ask($output, "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all");
+					$option = $dialog->ask($output, "File already exists: $target, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all");
 					switch ($option) {
 						case "o":
 							$overwrite = true;
