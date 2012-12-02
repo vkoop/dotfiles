@@ -26,8 +26,8 @@ class SetupInstallCommand extends Command {
 			$overwrite = false;
 			$backup = false;
 
-			$file = array_pop(explode("/", $linkable));
-			$file = array_pop(explode(".symlink", $file));
+			$file = array_pop(array_filter(explode("/", $linkable)));
+			$file = array_pop(array_filter(explode(".symlink", $file)));
 
 			$home = getenv("HOME");
 			$target = sprintf("%s/.%s ", $home, $file);
