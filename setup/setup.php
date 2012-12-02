@@ -63,7 +63,7 @@ class SetupInstallCommand extends Command {
 					else{
 						//delete recursive
 						$iter =new \RecursiveIteratorIterator(
-								new \DirectoryIterator($target),
+								new \RecursiveDirectoryIterator($target),
 								\RecursiveIteratorIterator::CHILD_FIRST
 						);
 						foreach($iter as $f){
