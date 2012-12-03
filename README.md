@@ -4,11 +4,21 @@ I'm using oh-my-zsh and custom zsh scripts.
 ## setup
 To create symlinks simply execute:
     
-    setup/bootstrap
+    setup/setup_with_ruby
+
+or
+
+    setup/setup_with_php
+
 
 Perhaps you have to execute
 
     git submodule init
+    git submodule update
+    
+To clone repo with all deps
+
+    git clone --recursive https://github.com/vkoop/dotfiles.git
 
 ## structure
 In order to sepearte configuration and aliases belonging to different appliations, each application gets it own subfolder. For example "php" inside of application folders there are the following naming conventions:
