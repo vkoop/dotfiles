@@ -1,4 +1,5 @@
 <?php
+
 namespace vkoop\dotfiles\Setup;
 
 require 'vendor/autoload.php';
@@ -13,15 +14,40 @@ class SetupInstallCommand extends Command {
 				->setDescription("create symlinks");
 	}
 
+	private function deleteRecursive($target) {
+		$iter = new \RecursiveIteratorIterator(
+				new \RecursiveDirectoryIterator($target), \RecursiveIteratorIterator::CHILD_FIRST
+		);
+		foreach ($iter as $f) {
+			if ($f->isFile())
+				unlink($f->__toString());
+			else
+				rmdir($f->__toString());
+		}
+	}
+
 	protected function execute(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output) {
 		$output->writeln('<info>Start setup</info>');
-		$linkables = glob('**/*.symlink');
+		$path = ";";
+
+		$linkables = new \RecursiveIteratorIterator(
+				new \RecursiveCallbackFilterIterator(
+				new \RecursiveDirectoryIterator($path), function($current, $key, $iterator) {
+					if ($iterator->hasChildren()) {
+						return TRUE;
+					}
+					if (array_pop(explode(".", $current->__to_string())) == "symlink")
+						return TRUE;
+					return FALSE;
+				}), \RecursiveIteratorIterator::SELF_FIRST
+		);
 
 		$skip_all = false;
 		$overwrite_all = false;
 		$backup_all = false;
 
-		foreach ($linkables as $linkable) {
+		foreach ($linkables as $linkableFile) {
+			$linkable = $linkableFile->__to_string();
 			$output->writeln("<info>Found file to link: $linkable</info>");
 			$overwrite = false;
 			$backup = false;
@@ -52,27 +78,20 @@ class SetupInstallCommand extends Command {
 							break;
 						case "S":
 							$skip_all = true;
-							break;
+							break 2;
 						case "s":
-							continue;
+							continue 2;
 					}
 				}
-				
-				if($overwrite || $overwrite_all){
-					if(is_file($target)) unlink ($target);
-					else{
-						//delete recursive
-						$iter =new \RecursiveIteratorIterator(
-								new \RecursiveDirectoryIterator($target),
-								\RecursiveIteratorIterator::CHILD_FIRST
-						);
-						foreach($iter as $f){
-							if($f->isFile()) unlink ($f->__toString());
-							else rmdir ($f->__toString());
-						}
+
+				if ($overwrite || $overwrite_all) {
+					if (is_file($target))
+						unlink($target);
+					else {
+						$this->deleteRecursive($target);
 					}
 				}
-				if($backup || $backup_all){
+				if ($backup || $backup_all) {
 					exec(sprintf("mv '$home/.$file' '$home/.$file.backup'"));
 				}
 			}
@@ -81,7 +100,6 @@ class SetupInstallCommand extends Command {
 	}
 
 }
-
 
 $application = new Application();
 $application->add(new SetupInstallCommand());
