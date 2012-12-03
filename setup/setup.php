@@ -28,26 +28,19 @@ class SetupInstallCommand extends Command {
 
 	protected function execute(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output) {
 		$output->writeln('<info>Start setup</info>');
-		$path = ";";
+		$path = realpath(__DIR__."/..");
+		$output->writeln("<info>Path: $path</info>");
 
-		$linkables = new \RecursiveIteratorIterator(
-				new \RecursiveCallbackFilterIterator(
-				new \RecursiveDirectoryIterator($path), function($current, $key, $iterator) {
-					if ($iterator->hasChildren()) {
-						return TRUE;
-					}
-					if (array_pop(explode(".", $current->__to_string())) == "symlink")
-						return TRUE;
-					return FALSE;
-				}), \RecursiveIteratorIterator::SELF_FIRST
-		);
+		$linkables = new SymlinkFilterIterator( new \RecursiveIteratorIterator(
+				new \RecursiveDirectoryIterator($path) , \RecursiveIteratorIterator::SELF_FIRST
+		));
 
 		$skip_all = false;
 		$overwrite_all = false;
 		$backup_all = false;
 
 		foreach ($linkables as $linkableFile) {
-			$linkable = $linkableFile->__to_string();
+			$linkable = $linkableFile->__toString();
 			$output->writeln("<info>Found file to link: $linkable</info>");
 			$overwrite = false;
 			$backup = false;
@@ -99,6 +92,14 @@ class SetupInstallCommand extends Command {
 		}
 	}
 
+}
+
+class SymlinkFilterIterator extends \FilterIterator{
+	public function accept() {
+		if (array_pop(explode(".", parent::current()->__toString())) == "symlink")
+			return TRUE;
+		else return FALSE;
+	}	
 }
 
 $application = new Application();
