@@ -49,7 +49,7 @@ class SetupInstallCommand extends Command {
 			$file = array_pop(array_filter(explode(".symlink", $file)));
 
 			$home = getenv("HOME");
-			$target = sprintf("%s/.%s ", $home, $file);
+			$target = sprintf("%s/.%s", $home, $file);
 
 			if (file_exists($target)) {
 				if (!$skip_all && !$overwrite_all && !$backup_all) {
