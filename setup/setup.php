@@ -96,7 +96,8 @@ class SetupInstallCommand extends Command {
 
 class SymlinkFilterIterator extends \FilterIterator{
 	public function accept() {
-		if (array_pop(explode(".", parent::current()->__toString())) == "symlink")
+		$fileName = parent::current()->__toString();
+		if (strpos($fileName,'.git')===FALSE && array_pop(explode(".",$fileName )) == "symlink")
 			return TRUE;
 		else return FALSE;
 	}	
