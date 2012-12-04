@@ -7,7 +7,6 @@ ZSH_THEME="my"
 plugins=(git zsh-syntax-highlighting svn)
 
 source $ZSH/oh-my-zsh.sh
-echo $fpath
 
 # load other scripts from dotfiles
 DOTFILES=dotfiles
