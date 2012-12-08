@@ -26,3 +26,6 @@ bind-key J resize-pane -D
 bind-key K resize-pane -U
 bind-key H resize-pane -L
 bind-key L resize-pane -R
+
+# Default tmux color
+set -g default-terminal "screen-256color"
