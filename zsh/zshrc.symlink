@@ -12,3 +12,6 @@ source $ZSH/oh-my-zsh.sh
 DOTFILES=dotfiles
 setopt extended_glob
 for config_file ($DOTFILES/^(load_excluded)/**/*.zsh) source $config_file
+
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+export EDITOR='mvim'
