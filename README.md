@@ -1,5 +1,8 @@
 # dotfiles
-I'm using oh-my-zsh and custom zsh scripts. 
+I'm using oh-my-zsh and custom zsh scripts. The concept is based on ideas from:
+
+* https://github.com/holman/dotfiles
+* https://github.com/robbyrussell/oh-my-zsh
 
 ## setup
 To create symlinks simply execute:
