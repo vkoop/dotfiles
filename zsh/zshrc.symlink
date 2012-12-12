@@ -4,7 +4,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 ZSH_THEME="my"
 
-plugins=(git zsh-syntax-highlighting svn)
+plugins=(git zsh-syntax-highlighting svn composer forklift symfony2)
 
 source $ZSH/oh-my-zsh.sh
 
