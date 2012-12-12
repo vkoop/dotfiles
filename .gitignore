@@ -1,3 +1,4 @@
 *.swp
 setup/vendor/
 composer.phar
+my.zsh
