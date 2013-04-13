@@ -2,3 +2,4 @@
 setup/vendor/
 composer.phar
 my.zsh
+machine_dependent

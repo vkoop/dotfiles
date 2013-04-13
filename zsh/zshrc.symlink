@@ -4,14 +4,11 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 ZSH_THEME="my"
 
-plugins=(gradle git zsh-syntax-highlighting svn composer forklift symfony2 sublime magic)
+plugins=(gradle git zsh-syntax-highlighting svn composer forklift symfony2 sublime magici wakeonlan)
 
 source $ZSH/oh-my-zsh.sh
 
 # load other scripts from dotfiles
-DOTFILES=dotfiles
+DOTFILES=~/dotfiles
 setopt extended_glob
 for config_file ($DOTFILES/^(load_excluded)/**/*.zsh) source $config_file
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-export EDITOR='mvim'
