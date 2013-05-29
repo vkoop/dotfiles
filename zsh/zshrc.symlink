@@ -3,12 +3,16 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 ZSH_THEME="my"
+DOTFILES=~/dotfiles
 
-plugins=(gradle git zsh-syntax-highlighting svn composer forklift symfony2 sublime magici wakeonlan)
+ENABLED_PLUGINS=$DOTFILES/machine_dependent/oh-my-zsh/plugins.enabled
+if [ -f $ENABLED_PLUGINS ] 
+then 
+    source $ENABLED_PLUGINS
+fi
 
 source $ZSH/oh-my-zsh.sh
 
 # load other scripts from dotfiles
-DOTFILES=~/dotfiles
 setopt extended_glob
 for config_file ($DOTFILES/^(load_excluded)/**/*.zsh) source $config_file
