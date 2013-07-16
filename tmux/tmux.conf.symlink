@@ -65,5 +65,7 @@ setw -g visual-activity on
 # auto rename
 set -g automatic-rename
 
+# change action key - like scree
+# # change action key - like screen
 #set-option -g prefix C-a
 #bind-key C-a last-window
