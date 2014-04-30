@@ -1,6 +1,3 @@
-[submodule "vim.symlink"]
-	path = vim.symlink
-url=https://github.com/vkoop/my-vim-setup.git
 [submodule "oh-my-zsh.symlink"]
 	path = load_excluded/oh-my-zsh.symlink
 	url = git://github.com/robbyrussell/oh-my-zsh.git
