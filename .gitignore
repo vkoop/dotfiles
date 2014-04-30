@@ -1,0 +1,5 @@
+eclim
+eclim.vim
+*.swp
+script-names.vim-scripts.org.json
+.netrwhist
