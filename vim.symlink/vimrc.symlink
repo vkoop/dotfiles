@@ -7,32 +7,34 @@ call vundle#rc()
 "Fix for backspace problem
 set bs=2
 
-"Plugins....
-Bundle 'mileszs/ack.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'digitaltoad/vim-jade'
+"Plugins # essential
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
-Bundle 'evidens/vim-twig'
-Bundle 'garbas/vim-snipmate'
-Bundle 'mattn/gist-vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'honza/vim-snippets'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'jcf/vim-latex'
-Bundle 'rodjek/vim-puppet' 
-Bundle 'kchmck/vim-coffee-script' 
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'derekwyatt/vim-scala'
+
+"Plugins....
+"Bundle 'mileszs/ack.vim'
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'kien/ctrlp.vim'
+"Bundle 'mattn/emmet-vim'
+"Bundle 'tpope/vim-eunuch'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'digitaltoad/vim-jade'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'evidens/vim-twig'
+"Bundle 'garbas/vim-snipmate'
+"Bundle 'mattn/gist-vim'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'honza/vim-snippets'
+"Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'jcf/vim-latex'
+"Bundle 'rodjek/vim-puppet' 
+"Bundle 'kchmck/vim-coffee-script' 
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'terryma/vim-multiple-cursors'
+"Bundle 'derekwyatt/vim-scala'
 
 filetype plugin indent on
 
@@ -103,3 +105,6 @@ nmap s <Plug>(easymotion-s)
 " " JK motions: Line motions
 " map <Leader>j <Plug>(easymotion-j)
 " map <Leader>k <Plug>(easymotion-k)
+
+:imap <C-J> <Plug>snipMateNextOrTrigger
+:smap <C-J> <Plug>snipMateNextOrTrigger
