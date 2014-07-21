@@ -63,8 +63,9 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:ctrlp_custom_ignore = '\.git$\|log$\|tmp\|node_modules$\|.class$'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 
-" project specific .vimrc
-" set exrc
+" project specific .vimrc" 
+set exrc
+set secure
 "
 
 
