@@ -32,7 +32,7 @@ do
 					"overwrite" ) OVERWRITE=true; break;;
 					"overwrite all" ) OVERWRITEALL=true; break;;
 					"backup" ) BACKUP=true; break;;
-					       "backup all" ) BACKUPALL=true; break;;	
+					"backup all" ) BACKUPALL=true; break;;	
 				esac
 			done
 		fi
