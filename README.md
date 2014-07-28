@@ -7,11 +7,7 @@ I'm using oh-my-zsh and custom zsh scripts. The concept is based on ideas from:
 ## setup
 To create symlinks simply execute:
     
-    setup/setup_with_ruby
-
-or
-
-    setup/setup_with_php
+    setup/setup.sh
 
 
 Perhaps you have to execute
