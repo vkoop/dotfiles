@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 echo 'Starting setup';
 
-REALPATH=$(grealpath -zq "$PWD");
+REALPATH=$(readlink -f "$PWD");
+# REALPATH=$(grealpath -zq "$PWD");
 
 LINKABLES=$(ls -d $REALPATH/**/*.symlink); #-d --> shows only directories instead of contents
 SKIPALL=false;
@@ -25,7 +26,8 @@ do
 		if [ $SKIPALL = false ] && [ $OVERWRITEALL = false ] && [ $BACKUPALL = false ]; 
 		then
 			#show dialog
-			select selection in "skip" "skip all" "overwrite" "overwrite all" "backup" "backup all" ; do
+			select selection in "skip" "skip all" "overwrite" "overwrite all" "backup" "backup all" ; 
+			do
 				case $selection in
 					"skip" ) continue 2;;
 					"skip all" ) SKIPALL=true; break 2;;
