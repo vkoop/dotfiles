@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo 'Starting setup';
+shopt -s globstar;
 
 REALPATH=$(readlink -f "$PWD");
 # REALPATH=$(grealpath -zq "$PWD");
