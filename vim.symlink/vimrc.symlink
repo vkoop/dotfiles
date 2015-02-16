@@ -100,3 +100,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 nnoremap  k gk
 nnoremap  j gj
 
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1 
+
+" set some default types
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
+autocmd BufNewFile,BufRead Berksfile set filetype=ruby
