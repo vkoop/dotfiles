@@ -3,8 +3,21 @@
 echo 'Starting setup';
 shopt -s globstar;
 
-REALPATH=$(readlink -f "$PWD");
-# REALPATH=$(grealpath -zq "$PWD");
+case "$(uname -s)" in
+	Darwin)
+		echo 'Mac OS X'
+		READLINK_BIN="greadlink"
+		;;
+
+	Linux)
+		READLINK_BIN="readlink"
+		;;
+	*)
+		echo "Not supported OS - will exit now!"
+		exit 0;
+esac
+
+REALPATH=$($READLINK_BIN -f "$PWD");
 
 LINKABLES=$(ls -d $REALPATH/**/*.symlink); #-d --> shows only directories instead of contents
 SKIPALL=false;
