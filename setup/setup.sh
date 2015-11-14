@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo 'Starting setup';
 shopt -s globstar;
