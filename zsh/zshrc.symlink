@@ -5,7 +5,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 ZSH_THEME="agnoster"
 DOTFILES=~/.dotfiles
 
-ENABLED_PLUGINS=$DOTFILES/machine_dependent/oh-my-zsh/plugins.enabled
+ENABLED_PLUGINS="$HOME/.plugins.oh-my-zsh"
 if [ -f $ENABLED_PLUGINS ] 
 then 
     source $ENABLED_PLUGINS
@@ -15,4 +15,4 @@ source $ZSH/oh-my-zsh.sh
 
 # load other scripts from dotfiles
 setopt extended_glob
-for config_file ($DOTFILES/^(load_excluded)/**/*.zsh) source $config_file
+for config_file ($DOTFILES/^(load_excluded)/**/*.(zsh|zsh.symlink)) source $config_file
