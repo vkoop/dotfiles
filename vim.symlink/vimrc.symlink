@@ -17,13 +17,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 
 
-filetype plugin indent on
-
-syntax enable
-set number
+filetype plugin indent on 	"load indention defintion for different filetypes
+syntax enable 			"syntax highlighting
+set number   			"show line numbers
+set cursorline
+set noerrorbells visualbell t_vb=
 
 let mapleader=","
-set noerrorbells visualbell t_vb=
 
 "SuperTab
 au FileType python set omnifunc=pythoncomplete#Complete
@@ -42,11 +42,9 @@ colorscheme desert
 "Fix filetypes
 let filetype_m='objc'
 
-set cursorline
 
 nnoremap <F5> :GundoToggle<CR>
 
-set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
@@ -76,23 +74,12 @@ set secure
 " binding.
 " " `s{char}{label}`
 nmap s <Plug>(easymotion-s)
-" " or
-" " `s{char}{char}{label}`
-" " Need one more keystroke, but on average, it may be more comfortable.
-" nmap s <Plug>(easymotion-s2)
-"
-" " Turn on case sensitive feature
-" let g:EasyMotion_smartcase = 1
-"
-" " JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-"
+
 " " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
