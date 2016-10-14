@@ -2,6 +2,7 @@
 
 echo 'Starting setup';
 shopt -s globstar;
+shopt -s extglob;
 
 case "$(uname -s)" in
 	Darwin)
@@ -16,6 +17,11 @@ case "$(uname -s)" in
 		echo "Not supported OS - will exit now!"
 		exit 0;
 esac
+
+#setup zprezto
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/!(README.md); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.$(basename $rcfile)"
+done
 
 REALPATH=$($READLINK_BIN -f "$PWD");
 
