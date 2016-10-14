@@ -9,6 +9,3 @@ fi
 for config_file ($DOTFILES/^(load_excluded)/**/*.(zsh|zsh.symlink)) {
 	source $config_file;
 }
-#source "$DOTFILES/load_excluded/tmp/combined.zsh"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
