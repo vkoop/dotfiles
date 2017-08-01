@@ -10,12 +10,6 @@ bind - split-window -v
 #mouse
 set -g mouse on
 
-# use the vim motion keys to move between panes
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
 # Pane resize in all four directions using vi bindings.
 # # Can use these raw but I map them to Cmd-Opt-<h,j,k,l> in iTerm2.
 # # http://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
