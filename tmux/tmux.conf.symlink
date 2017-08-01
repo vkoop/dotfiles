@@ -23,10 +23,10 @@ set -g visual-activity on
 # Pane resize in all four directions using vi bindings.
 # # Can use these raw but I map them to Cmd-Opt-<h,j,k,l> in iTerm2.
 # # http://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
-bind-key J resize-pane -D
-bind-key K resize-pane -U
-bind-key H resize-pane -L
-bind-key L resize-pane -R
+bind J resize-pane -D
+bind K resize-pane -U
+bind H resize-pane -L
+bind L resize-pane -R
 
 # Default tmux color
 set -g default-terminal "screen-256color"
