@@ -16,10 +16,6 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-# Set window notifications
-setw -g monitor-activity on
-set -g visual-activity on
-
 # Pane resize in all four directions using vi bindings.
 # # Can use these raw but I map them to Cmd-Opt-<h,j,k,l> in iTerm2.
 # # http://tangledhelix.com/blog/2012/04/28/iterm2-keymaps-for-tmux/
@@ -35,11 +31,6 @@ set -g status-bg black
 set -g status-fg white
 set -g status-left ‘#[fg=green]#H’
 
-## status bar
-## all
-#set -g status-fg white
-#set -g status-bg black
-
 # left
 set -g status-left-fg white
 set -g status-left-bg blue
@@ -53,10 +44,6 @@ set -g status-right '%a %b %d, %Y %H:%M'
 # color
 set-window-option -g window-status-current-fg white
 set-window-option -g window-status-current-bg blue
-
-# notifications
-setw -g monitor-activity on
-setw -g visual-activity on
 
 # auto rename
 set -g automatic-rename
