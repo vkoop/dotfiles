@@ -1,12 +1,3 @@
-# remap prefix to Control + a
-#set -g prefix C-a
-#unbind C-b
-#bind C-a send-prefix
-
-# quick pane cycling
-unbind ^A
-bind ^A select-pane -t :.+
-
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf
@@ -28,12 +19,6 @@ bind l select-pane -R
 # Set window notifications
 setw -g monitor-activity on
 set -g visual-activity on
-
-# mouse
-# set -g mouse-resize-pane on
-# set -g mouse-select-pane on
-# set -g mouse-select-window on
-# setw -g mode-mouse on
 
 # Pane resize in all four directions using vi bindings.
 # # Can use these raw but I map them to Cmd-Opt-<h,j,k,l> in iTerm2.
