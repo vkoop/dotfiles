@@ -1,9 +1,0 @@
-bundle/*
-!bundle/vundle
-!bundle/vundle/*
-
-eclim
-eclim.vim
-*.swp
-script-names.vim-scripts.org.json
-.netrwhist
