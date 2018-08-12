@@ -3,4 +3,4 @@
 	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "vim.symlink"]
 	path = vim.symlink
-	url = git@github.com:vkoop/vimdotfiles.git
+	url = https://github.com/vkoop/my-vim-setup.git
