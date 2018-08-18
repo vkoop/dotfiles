@@ -9,3 +9,4 @@ fi
 for config_file ($DOTFILES/^(load_excluded)/**/*.(zsh|zsh.symlink)) {
 	source $config_file;
 }
+
