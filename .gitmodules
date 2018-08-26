@@ -1,3 +1,6 @@
 [submodule "load_excluded/zprezto.symlink"]
 	path = load_excluded/zprezto.symlink
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "vim.symlink"]
+	path = vim.symlink
+	url = https://github.com/vkoop/vimdotfiles.git
