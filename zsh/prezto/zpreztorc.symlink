@@ -33,6 +33,9 @@ zstyle ':prezto:load' pmodule \
   'wakeonlan' \
   'rsync' \
   'ssh' \
+  'docker' \
+  'node' \
+  'gpg'
   
 
 # Set the key mapping style to 'emacs' or 'vi'.
