@@ -18,9 +18,9 @@ client.urgent             $color_bright_yellow   $color_bright_yellow   $color_n
 client.placeholder        $color_unused          $color_normal_black    $color_unused          $color_unused   $color_unused
 
 
-for_window [class=".*"] border pixel 0
-gaps inner 10
-smart_gaps on
+#for_window [class=".*"] border pixel 0
+#gaps inner 10
+#smart_gaps on
 
 # Basic setup
 set $mod Mod4
@@ -35,7 +35,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,8 +202,8 @@ for_window    [class="TeamViewer"]           move container to $workspace9, floa
 
 
 # Screenshot utils
-bindsym Control+Print exec gnome-screenshot -i
-bindsym Print exec gnome-screenshot
+bindsym Control+Print exec xfce4-screenshooter -i
+bindsym Print exec xfce4-screenshooter
 
 set $mode_workspaces_monitors Move workspace between monitors
 mode "$mode_workspaces_monitors" {
