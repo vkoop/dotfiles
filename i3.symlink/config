@@ -40,9 +40,9 @@ bar {
   #tray_output none
 }
 
-for_window [class=".*"] border pixel 0
-gaps inner 10
-smart_gaps on
+#for_window [class=".*"] border pixel 0
+#gaps inner 10
+#smart_gaps on
 
 # Basic setup
 set $mod Mod4
@@ -206,8 +206,8 @@ bindsym $mod+r mode "resize"
 
 
 # Screenshot utils
-bindsym Control+Print exec gnome-screenshot -i
-bindsym Print exec gnome-screenshot
+bindsym Control+Print exec xfce4-screenshooter -i
+bindsym Print exec xfce4-screenshooter
 
 set $mode_workspaces_monitors Move workspace between monitors
 mode "$mode_workspaces_monitors" {
