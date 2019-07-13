@@ -64,8 +64,8 @@ bindsym $mod+Shift+q kill
 
 
 # Starter
-bindsym $mod+space exec pgrep -x rofi && killall rofi || rofi -show drun -font 'System Hack Regular Display 13' -lines 3 -eh 2 -theme solarized
-
+#bindsym $mod+space exec pgrep -x rofi && killall rofi || rofi -show drun -font 'System Hack Regular Display 13' -lines 3 -eh 2 -theme solarized
+bindsym $mod+space exec synapse
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
