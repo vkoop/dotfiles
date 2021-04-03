@@ -4,3 +4,4 @@ composer.phar
 my.zsh
 machine_dependent
 *.swo
+.idea/
