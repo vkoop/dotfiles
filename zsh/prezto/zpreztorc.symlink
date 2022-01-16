@@ -28,7 +28,6 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
   'git' \
   'tmux' \
-  'homebrew' \
   'history-substring-search' \
   'wakeonlan' \
   'rsync' \
