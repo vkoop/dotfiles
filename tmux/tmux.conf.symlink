@@ -57,10 +57,6 @@ set -g status-left ‘#[fg=green]#H’
 
 set -g status-right '%a %b %d, %Y %H:%M'
 
-## window options
-# color
-set-window-option -g window-status-current-fg white
-set-window-option -g window-status-current-bg blue
 
 # auto rename
 set -g automatic-rename
