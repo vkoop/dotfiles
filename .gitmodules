@@ -2,6 +2,7 @@
 	path = load_excluded/zprezto.symlink
 	url = https://github.com/sorin-ionescu/prezto.git
 	    branch = master
+	    ignore = dirty
 
 [submodule "vim.symlink"]
 	path = vim.symlink
