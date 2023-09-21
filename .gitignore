@@ -5,3 +5,4 @@ my.zsh
 machine_dependent
 *.swo
 .idea/
+ext_*
