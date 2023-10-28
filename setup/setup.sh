@@ -4,19 +4,7 @@ echo 'Starting setup';
 shopt -s globstar;
 shopt -s extglob;
 
-case "$(uname -s)" in
-	Darwin)
-		echo 'Mac OS X'
-		READLINK_BIN="greadlink"
-		;;
-
-	Linux)
-		READLINK_BIN="readlink"
-		;;
-	*)
-		echo "Not supported OS - will exit now!"
-		exit 0;
-esac
+READLINK_BIN="readlink"
 
 #setup zprezto
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/!(README.md); do
