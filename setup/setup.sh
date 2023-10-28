@@ -13,7 +13,7 @@ done
 
 REALPATH=$($READLINK_BIN -f "$PWD");
 
-LINKABLES=$(ls -d $REALPATH/**/*.symlink); #-d --> shows only directories instead of contents
+LINKABLES=$(ls -d "$REALPATH"/**/*.symlink); #-d --> shows only directories instead of contents
 SKIPALL=false;
 OVERWRITEALL=false;
 BACKUPALL=false;
@@ -54,14 +54,14 @@ do
 	fi
 
 	if $OVERWRITE  || $OVERWRITEALL ; then
-		if [ -f $TARGET ]; then
+		if [ -f "$TARGET" ]; then
 			echo "overwriting $TARGET";
-			rm $TARGET;
+			rm "$TARGET";
 		else
 			echo "overwriting $TARGET";
-			rm -R $TARGET;
+			rm -R "$TARGET";
 		fi
 	fi	
 	echo "Creating symlink from: $LINK to $TARGET";
-	ln -s $LINK $TARGET #perhaps have to get realpath of LINK
+	ln -s "$LINK" "$TARGET" #perhaps have to get realpath of LINK
 done
