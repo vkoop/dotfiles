@@ -18,22 +18,16 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'terminal' \
   'editor' \
-  'history' \
   'directory' \
-  'spectrum' \
   'utility' \
   'completion' \
   'prompt' \
   'git' \
   'tmux' \
-  'history-substring-search' \
-  'wakeonlan' \
   'rsync' \
   'ssh' \
   'docker' \
-  'node' \
   'gpg' \
   'docker'
   
