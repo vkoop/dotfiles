@@ -7,3 +7,6 @@
 	path = load_excluded/oh-my-zsh.symlink
 	branch = master
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "load_excluded/zsh-autosuggestions"]
+	path = load_excluded/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
