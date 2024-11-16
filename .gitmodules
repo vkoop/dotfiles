@@ -1,10 +1,7 @@
-[submodule "load_excluded/zprezto.symlink"]
-	path = load_excluded/zprezto.symlink
-	url = https://github.com/sorin-ionescu/prezto.git
-	    branch = master
-	    ignore = dirty
-
 [submodule "vim.symlink"]
 	path = vim.symlink
     branch = master
 	url = https://github.com/vkoop/vimdotfiles.git
+[submodule "load_excluded/oh-my-zsh.symlink"]
+	path = load_excluded/oh-my-zsh.symlink
+	url = https://github.com/ohmyzsh/ohmyzsh.git
