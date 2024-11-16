@@ -2,6 +2,8 @@
 	path = vim.symlink
     branch = master
 	url = https://github.com/vkoop/vimdotfiles.git
+
 [submodule "load_excluded/oh-my-zsh.symlink"]
 	path = load_excluded/oh-my-zsh.symlink
+	branch = master
 	url = https://github.com/ohmyzsh/ohmyzsh.git
