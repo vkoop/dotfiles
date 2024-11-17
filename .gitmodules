@@ -3,10 +3,10 @@
     branch = master
 	url = https://github.com/vkoop/vimdotfiles.git
 
-[submodule "load_excluded/oh-my-zsh.symlink"]
-	path = load_excluded/oh-my-zsh.symlink
-	branch = master
-	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "load_excluded/zsh-autosuggestions"]
+
+[submodule "zsh-autosuggestions"]
 	path = load_excluded/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "load_excluded/oh-my-zsh.symlink"]
+	path = load_excluded/oh-my-zsh.symlink
+	url = https://github.com/ohmyzsh/ohmyzsh
