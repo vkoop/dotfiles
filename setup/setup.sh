@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 echo 'Starting setup';
+
+# enable globstar and extglob to allow recursive globbing and extended pattern matching
 shopt -s globstar;
 shopt -s extglob;
 
