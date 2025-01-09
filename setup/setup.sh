@@ -2,11 +2,30 @@
 
 echo 'Starting setup';
 
+# mac os setup
+# brew install bash
+# brew install coreutils
+# brew install starship
+# link .config/starship.toml
+
+
 # enable globstar and extglob to allow recursive globbing and extended pattern matching
 shopt -s globstar;
 shopt -s extglob;
 
-READLINK_BIN="readlink"
+case "$(uname -s)" in
+	Darwin)
+		echo 'Mac OS X'
+		READLINK_BIN="greadlink"
+		;;
+
+	Linux)
+		READLINK_BIN="readlink"
+		;;
+	*)
+		echo "Not supported OS - will exit now!"
+		exit 0;
+esac
 
 #setup zprezto
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/!(README.md); do
