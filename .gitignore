@@ -6,3 +6,5 @@ machine_dependent
 *.swo
 .idea/
 ext_*
+
+.DS_Store
