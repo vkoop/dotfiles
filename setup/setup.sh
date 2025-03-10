@@ -27,14 +27,9 @@ case "$(uname -s)" in
 		exit 0;
 esac
 
-#setup zprezto
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/!(README.md); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.$(basename $rcfile)"
-done
-
 REALPATH=$($READLINK_BIN -f "$PWD");
 
-LINKABLES=$(ls -d "$REALPATH"/**/*.symlink); #-d --> shows only directories instead of contents
+LINKABLES=$(ls -d "$REALPATH"/**/*.symlink "$REALPATH"/**/link__*); 
 SKIPALL=false;
 OVERWRITEALL=false;
 BACKUPALL=false;
@@ -42,24 +37,45 @@ BACKUPALL=false;
 for LINK in $LINKABLES
 do
 	echo "Found file to link: $LINK"
-	FILENAME=$(basename $LINK .symlink) #TODO ordner muss noch entfernt werden 
-	TARGET="$HOME/.$FILENAME"
-	BACKUP=false
-	OVERWRITE=false
+	
+	# Handle both .symlink and link__ files
+	if [[ $LINK == *".symlink" ]]; then
+		FILENAME=$(basename "$LINK" .symlink)
+		TARGET="$HOME/.$FILENAME"
+	else
+		# Extract the filename part after link__
+		FILENAME=$(basename "$LINK")
+		FILENAME=${FILENAME#link__}
+		
+		# Handle subdirectory creation using @@@ separator
+		if [[ $FILENAME == *"@@@"* ]]; then
+			# Split the path into parts using @@@
+			IFS="@@@" read -ra PARTS <<< "$FILENAME"
+			
+			# Build the target path
+			TARGET="$HOME"
+			for ((i=0; i<${#PARTS[@]}-1; i++)); do
+				TARGET="$TARGET/${PARTS[i]}"
+			done
+			# Add the final filename
+			TARGET="$TARGET/${PARTS[-1]}"
+			
+			# Create directory if it doesn't exist
+			mkdir -p "$(dirname "$TARGET")"
+		else
+			TARGET="$HOME/$FILENAME"
+		fi
+	fi
 
 	echo "target: $TARGET"
 
-	if [ -a $TARGET ];
-	then
+	if [ -a "$TARGET" ]; then
 		echo "file already exists: $TARGET";
-		if [ $SKIPALL = false ] && [ $OVERWRITEALL = false ] && [ $BACKUPALL = false ]; 
-		then
-			#show dialog
-			select selection in "skip" "skip all" "overwrite" "overwrite all" "backup" "backup all" ; 
-			do
+		if [ $SKIPALL = false ] && [ $OVERWRITEALL = false ] && [ $BACKUPALL = false ]; then
+			select selection in "skip" "skip all" "overwrite" "overwrite all" "backup" "backup all" ; do
 				case $selection in
 					"skip" ) continue 2;;
-					"skip all" ) SKIPALL=true; break 2;;
+					"skip all" ) SKIPALL=true; break;;
 					"overwrite" ) OVERWRITE=true; break;;
 					"overwrite all" ) OVERWRITEALL=true; break;;
 					"backup" ) BACKUP=true; break;;
@@ -69,12 +85,12 @@ do
 		fi
 	fi
 
-	if $BACKUP || $BACKUPALL ;  then
+	if $BACKUP || $BACKUPALL; then
 		echo "trying to create backup $TARGET.backup";
 		mv "$TARGET" "$TARGET.backup";
 	fi
 
-	if $OVERWRITE  || $OVERWRITEALL ; then
+	if $OVERWRITE || $OVERWRITEALL; then
 		if [ -f "$TARGET" ]; then
 			echo "overwriting $TARGET";
 			rm "$TARGET";
@@ -84,5 +100,5 @@ do
 		fi
 	fi	
 	echo "Creating symlink from: $LINK to $TARGET";
-	ln -s "$LINK" "$TARGET" #perhaps have to get realpath of LINK
+	ln -s "$LINK" "$TARGET"
 done
